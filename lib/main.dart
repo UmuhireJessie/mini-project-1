@@ -92,53 +92,65 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ]),
-              SizedBox(height: 40),
+              SizedBox(height: 60),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignOutPage()));
-                    },
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(fontSize: 14, fontFamily: 'DM Sans Med'),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                        Color.fromRGBO(255, 77, 1, 0.53),
+                  SizedBox(
+                    width: 274,
+                    height: 34,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignOutPage()));
+                      },
+                      child: Text(
+                        'Sign Up',
+                        style:
+                            TextStyle(fontSize: 14, fontFamily: 'DM Sans Med'),
                       ),
-                      elevation: MaterialStateProperty.all<double>(0),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.88),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                          Color.fromRGBO(255, 77, 1, 0.53),
+                        ),
+                        elevation: MaterialStateProperty.all<double>(0),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.88),
+                          ),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignInPage()));
-                    },
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(fontSize: 14, fontFamily: 'DM Sans Med'),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                        Color.fromRGBO(255, 77, 1, 0.53),
+                  SizedBox(
+                    width: 274,
+                    height: 34,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignInPage()));
+                      },
+                      child: Text(
+                        'Sign In',
+                        style:
+                            TextStyle(fontSize: 14, fontFamily: 'DM Sans Med'),
                       ),
-                      elevation: MaterialStateProperty.all<double>(0),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.88),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                          Color.fromRGBO(255, 77, 1, 0.53),
+                        ),
+                        elevation: MaterialStateProperty.all<double>(0),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.88),
+                          ),
                         ),
                       ),
                     ),
