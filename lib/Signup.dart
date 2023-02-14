@@ -13,7 +13,7 @@ class _SignOutPageState extends State<SignOutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      body: Center(
+      body: SingleChildScrollView(
         child: Center(
             child: Column(
           children: [
@@ -161,11 +161,15 @@ class _SignOutPageState extends State<SignOutPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Radio(value: 1, groupValue: 1, onChanged: (value) {}),
                   Text(
-                    'By clicking here, you agree to our Terms. Learn more on how we collect, use, and share your data in our Privacy Policy. *',
+                    'By clicking here, you agree to our Terms. Learn more \n on how we collect, use, and share your data in our\n Privacy Policy. *',
+                    style: TextStyle(
+                        fontSize: 10,
+                        fontFamily: 'DM Sans Med',
+                        color: Color(0xff000000)),
                   ),
                 ],
               ),
@@ -192,11 +196,15 @@ class _SignOutPageState extends State<SignOutPage> {
                     ),
                   )),
                 )),
-            const Text(
+            SizedBox(height: 7),
+            Text(
               'OR',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'DM Sans',
+                  color: Color(0xff000000)),
             ),
-
+            SizedBox(height: 7),
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Container(
@@ -209,29 +217,39 @@ class _SignOutPageState extends State<SignOutPage> {
                   ),
                   child: Center(
                       child: SizedBox(
-                    width: 180,
-                    child: Row(children: const [
-                      Icon(FontAwesomeIcons.google),
-                      Text(
-                        ' Sign Up with google',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ]),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            // margin: EdgeInsets.all(30),
+                            width: 20,
+                            height: 20,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image:
+                                        AssetImage('assets/images/google.png'),
+                                    fit: BoxFit.cover)),
+                          ),
+                          Text(
+                            ' Sign Up with google',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontFamily: 'DM Sans',
+                                color: Color(0xff000000)),
+                          ),
+                        ]),
                   )),
                 )),
-
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Have an account already?',
                   style: TextStyle(
-                    fontSize: 10,
-                  ),
+                      fontSize: 10,
+                      fontFamily: 'DM Sans',
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(width: 8),
                 GestureDetector(
@@ -254,7 +272,8 @@ class _SignOutPageState extends State<SignOutPage> {
                   },
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 20)
           ],
         )),
       ),

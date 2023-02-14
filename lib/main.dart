@@ -13,8 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Application name
       title: 'B-Ticket App',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -51,6 +50,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+                accountName: Text('Name'),
+                accountEmail: Text(''),
+                currentAccountPicture: CircleAvatar(
+                  child: Icon(FontAwesomeIcons.person),
+                )),
+            ListTile(
+                leading: Icon(FontAwesomeIcons.person), title: Text('Profile')),
+            ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
+          ],
+        ),
+      ),
       body: Container(
           color: Color(0xFFF4F4F4),
           child: Column(
@@ -58,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Stack(children: [
                 Container(
                   height: 378,
+                  width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     color: Color.fromRGBO(255, 98, 1, 0.53),
                     borderRadius: BorderRadius.only(
@@ -65,6 +80,42 @@ class _MyHomePageState extends State<MyHomePage> {
                       bottomRight: Radius.circular(60),
                     ),
                   ),
+                  child: Column(children: [
+                    SizedBox(height: 50),
+                    Container(
+                        child: Column(
+                      children: [
+                        Text(
+                          "B-Tickets",
+                          style: TextStyle(fontSize: 20, fontFamily: 'Bungee'),
+                        ),
+                        Container(
+                          // margin: EdgeInsets.all(30),
+                          width: 297,
+                          height: 192,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('assets/images/car.png'),
+                                  fit: BoxFit.cover)),
+                        ),
+                        SizedBox(height: 10),
+                        Center(
+                          child: Column(children: [
+                            Text(
+                              "Your Best Online Bus Ticketing System ",
+                              style:
+                                  TextStyle(fontSize: 13, fontFamily: 'Bungee'),
+                            ),
+                            Text(
+                              "in Rwanda",
+                              style:
+                                  TextStyle(fontSize: 13, fontFamily: 'Bungee'),
+                            ),
+                          ]),
+                        ),
+                      ],
+                    ))
+                  ]),
                 ),
 
                 // Top bar with time and icons
@@ -108,8 +159,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       child: Text(
                         'Sign Up',
-                        style:
-                            TextStyle(fontSize: 14, fontFamily: 'DM Sans Med'),
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'DM Sans Med',
+                            color: Color(0xff000000)),
                       ),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
@@ -138,8 +191,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       child: Text(
                         'Sign In',
-                        style:
-                            TextStyle(fontSize: 14, fontFamily: 'DM Sans Med'),
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'DM Sans Med',
+                            color: Color(0xff000000)),
                       ),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
@@ -159,21 +214,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           )),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-                accountName: Text('Name'),
-                accountEmail: Text(''),
-                currentAccountPicture: CircleAvatar(
-                  child: Icon(FontAwesomeIcons.person),
-                )),
-            ListTile(
-                leading: Icon(FontAwesomeIcons.person), title: Text('Profile')),
-            ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
-          ],
-        ),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

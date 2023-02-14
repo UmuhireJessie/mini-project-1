@@ -124,7 +124,10 @@ class _SignInPageState extends State<SignInPage> {
                     onPressed: () {},
                     child: Text(
                       'Sign In',
-                      style: TextStyle(fontSize: 14, fontFamily: 'DM Sans Med'),
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'DM Sans Med',
+                          color: Color(0xff000000)),
                     ),
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
@@ -150,7 +153,7 @@ class _SignInPageState extends State<SignInPage> {
               children: [
                 Text(
                   "Don't have an account yet?",
-                  style: TextStyle(fontSize: 12, fontFamily: 'DM Sans'),
+                  style: TextStyle(fontSize: 14, fontFamily: 'DM Sans'),
                 ),
                 SizedBox(width: 8),
                 GestureDetector(
