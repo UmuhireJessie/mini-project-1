@@ -50,62 +50,136 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-                accountName: Text('Name'),
-                accountEmail: Text(''),
-                currentAccountPicture: CircleAvatar(
-                  child: Icon(FontAwesomeIcons.person),
-                )),
-            ListTile(
-                leading: Icon(FontAwesomeIcons.person), title: Text('Profile')),
-            ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
-          ],
-        ),
-      ),
+      // drawer: Drawer(
+      //   child: ListView(
+      //     children: [
+      //       UserAccountsDrawerHeader(
+      //           accountName: Text('Name'),
+      //           accountEmail: Text(''),
+      //           currentAccountPicture: CircleAvatar(
+      //             child: Icon(FontAwesomeIcons.person),
+      //           )),
+      //       ListTile(
+      //           leading: Icon(FontAwesomeIcons.person), title: Text('Profile')),
+      //       ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
+      //     ],
+      //   ),
+      // ),
       body: Container(
-        color: Color(0xFFF4F4F4),
-        child: Stack(
-          children: [
-            Container(
-              height: 378,
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(255, 98, 1, 0.53),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(60),
-                  bottomRight: Radius.circular(60),
-                ),
-              ),
-            ),
-
-            // Top bar with time and icons
-            Container(
-              height: 50,
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '11:30 PM MTN',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          color: Color(0xFFF4F4F4),
+          child: Column(
+            children: [
+              Stack(children: [
+                Container(
+                  height: 378,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(255, 98, 1, 0.53),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(60),
+                      bottomRight: Radius.circular(60),
+                    ),
                   ),
-                  Row(
+                ),
+
+                // Top bar with time and icons
+                Container(
+                  height: 50,
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(Icons.wifi),
-                      SizedBox(width: 8),
-                      Icon(FontAwesomeIcons.signal, size: 17),
-                      SizedBox(width: 8),
-                      Icon(FontAwesomeIcons.batteryThreeQuarters),
+                      Text(
+                        '11:30 PM MTN',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.wifi),
+                          SizedBox(width: 8),
+                          Icon(FontAwesomeIcons.signal, size: 17),
+                          SizedBox(width: 8),
+                          Icon(FontAwesomeIcons.batteryThreeQuarters),
+                        ],
+                      ),
                     ],
+                  ),
+                ),
+
+                Drawer(
+                  child: ListView(
+                    children: [
+                      UserAccountsDrawerHeader(
+                          accountName: Text('Name'),
+                          accountEmail: Text(''),
+                          currentAccountPicture: CircleAvatar(
+                            child: Icon(FontAwesomeIcons.person),
+                          )),
+                      ListTile(
+                          leading: Icon(FontAwesomeIcons.person),
+                          title: Text('Profile')),
+                      ListTile(
+                          leading: Icon(Icons.settings),
+                          title: Text('Settings')),
+                    ],
+                  ),
+                ),
+              ]),
+              SizedBox(height: 40),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignInPage()));
+                    },
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(fontSize: 14, fontFamily: 'DM Sans Med'),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Color.fromRGBO(255, 77, 1, 0.53),
+                      ),
+                      elevation: MaterialStateProperty.all<double>(0),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.88),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignInPage()));
+                    },
+                    child: Text(
+                      'Sign In',
+                      style: TextStyle(fontSize: 14, fontFamily: 'DM Sans Med'),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Color.fromRGBO(255, 77, 1, 0.53),
+                      ),
+                      elevation: MaterialStateProperty.all<double>(0),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.88),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          )),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
