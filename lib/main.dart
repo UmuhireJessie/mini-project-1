@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Signin.dart';
+import 'Signup.dart';
 import 'Splash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -50,21 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: Drawer(
-      //   child: ListView(
-      //     children: [
-      //       UserAccountsDrawerHeader(
-      //           accountName: Text('Name'),
-      //           accountEmail: Text(''),
-      //           currentAccountPicture: CircleAvatar(
-      //             child: Icon(FontAwesomeIcons.person),
-      //           )),
-      //       ListTile(
-      //           leading: Icon(FontAwesomeIcons.person), title: Text('Profile')),
-      //       ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
-      //     ],
-      //   ),
-      // ),
       body: Container(
           color: Color(0xFFF4F4F4),
           child: Column(
@@ -105,25 +91,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-
-                Drawer(
-                  child: ListView(
-                    children: [
-                      UserAccountsDrawerHeader(
-                          accountName: Text('Name'),
-                          accountEmail: Text(''),
-                          currentAccountPicture: CircleAvatar(
-                            child: Icon(FontAwesomeIcons.person),
-                          )),
-                      ListTile(
-                          leading: Icon(FontAwesomeIcons.person),
-                          title: Text('Profile')),
-                      ListTile(
-                          leading: Icon(Icons.settings),
-                          title: Text('Settings')),
-                    ],
-                  ),
-                ),
               ]),
               SizedBox(height: 40),
               Column(
@@ -134,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignInPage()));
+                              builder: (context) => SignOutPage()));
                     },
                     child: Text(
                       'Sign Up',
@@ -180,6 +147,21 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           )),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+                accountName: Text('Name'),
+                accountEmail: Text(''),
+                currentAccountPicture: CircleAvatar(
+                  child: Icon(FontAwesomeIcons.person),
+                )),
+            ListTile(
+                leading: Icon(FontAwesomeIcons.person), title: Text('Profile')),
+            ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

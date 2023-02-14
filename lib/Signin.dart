@@ -1,4 +1,4 @@
-import 'main.dart';
+import 'Signup.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -168,7 +168,7 @@ class _SignInPageState extends State<SignInPage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyApp()),
+                      MaterialPageRoute(builder: (context) => SignOutPage()),
                     );
                   },
                 ),
