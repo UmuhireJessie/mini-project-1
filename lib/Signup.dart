@@ -1,3 +1,4 @@
+import 'main.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,12 +26,14 @@ class _SignOutPageState extends State<SignOutPage> {
                     margin: EdgeInsets.only(left: 15),
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
-                      child: Icon(FontAwesomeIcons.backward,
-                          color: Color(0xff000000)),
+                      child: Icon(FontAwesomeIcons.arrowLeft,
+                          color: Color(0xff000000), size: 26),
                     ),
                   ),
                   onTap: () {
-                    Navigator.pop(context);
+                    // Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MyHomePage()));
                   },
                 ),
                 Expanded(

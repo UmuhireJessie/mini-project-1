@@ -64,11 +64,11 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               UserAccountsDrawerHeader(
                 accountName: Container(
-                  margin: EdgeInsets.only(left: 18.0),
+                  margin: EdgeInsets.only(left: 14.0),
                   child: Text(
                     "Name",
                     style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 16,
                         fontFamily: 'DM Sans',
                         color: Color(0xff742d0f)),
                   ),
@@ -86,22 +86,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.person, size: 28),
+                leading: Icon(Icons.person, size: 25),
                 title: Text(
                   'Profile',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 16,
                       fontFamily: 'DM Sans',
                       color: Color(0xff707378)),
                 ),
                 iconColor: Color(0xff707378),
               ),
               ListTile(
-                leading: Icon(Icons.settings, size: 28),
+                leading: Icon(Icons.settings, size: 25),
                 title: Text(
                   'Settings',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 16,
                       fontFamily: 'DM Sans',
                       color: Color(0xff707378)),
                 ),
