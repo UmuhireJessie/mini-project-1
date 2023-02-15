@@ -29,6 +29,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void _openDrawer() {
+    _scaffoldKey.currentState!.openDrawer();
+  }
+
   int _selectedIndex = 0;
 
   List<Widget> _pages = [
@@ -50,21 +56,62 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       drawer: Drawer(
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-                accountName: Text('Name'),
+        child: Container(
+          color: Color(0xFFF4F4F4),
+          child: ListView(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                accountName: Container(
+                  margin: EdgeInsets.only(left: 18.0),
+                  child: Text(
+                    "Name",
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'DM Sans',
+                        color: Color(0xff742d0f)),
+                  ),
+                ),
                 accountEmail: Text(''),
-                currentAccountPicture: CircleAvatar(
-                  child: Icon(FontAwesomeIcons.person),
-                )),
-            ListTile(
-                leading: Icon(FontAwesomeIcons.person), title: Text('Profile')),
-            ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
-          ],
+                currentAccountPicture: Container(
+                  margin: EdgeInsets.only(top: 20.0),
+                  child: CircleAvatar(
+                    child: Icon(Icons.person, color: Color(0xffab3b0b)),
+                    backgroundColor: Color.fromRGBO(215, 105, 58, 0.46),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(255, 77, 1, 0.53),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.person, size: 28),
+                title: Text(
+                  'Profile',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'DM Sans',
+                      color: Color(0xff707378)),
+                ),
+                iconColor: Color(0xff707378),
+              ),
+              ListTile(
+                leading: Icon(Icons.settings, size: 28),
+                title: Text(
+                  'Settings',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'DM Sans',
+                      color: Color(0xff707378)),
+                ),
+                iconColor: Color(0xff707378),
+              ),
+            ],
+          ),
         ),
       ),
+
       body: Container(
           color: Color(0xFFF4F4F4),
           child: Column(
@@ -85,9 +132,29 @@ class _MyHomePageState extends State<MyHomePage> {
                     Container(
                         child: Column(
                       children: [
-                        Text(
-                          "B-Tickets",
-                          style: TextStyle(fontSize: 20, fontFamily: 'Bungee'),
+                        Row(
+                          children: [
+                            GestureDetector(
+                              child: Container(
+                                margin: EdgeInsets.only(left: 15),
+                                child: MouseRegion(
+                                  cursor: SystemMouseCursors.click,
+                                  child: Icon(FontAwesomeIcons.bars,
+                                      color: Color(0xff000000)),
+                                ),
+                              ),
+                              onTap: _openDrawer,
+                            ),
+                            Expanded(
+                              child: Center(
+                                child: Text(
+                                  "B-Tickets",
+                                  style: TextStyle(
+                                      fontSize: 20, fontFamily: 'Bungee'),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         Container(
                           // margin: EdgeInsets.all(30),
@@ -214,6 +281,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           )),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _openDrawer,
+      //   child: Icon(FontAwesomeIcons.bars, color: Color(0xff000000)),
+      // ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

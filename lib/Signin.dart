@@ -40,12 +40,30 @@ class _SignInPageState extends State<SignInPage> {
                 ],
               ),
             ),
-
-            Center(
-              child: Text(
-                "SIGN IN",
-                style: TextStyle(fontSize: 32, fontFamily: 'Bungee'),
-              ),
+            Row(
+              children: [
+                GestureDetector(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 15),
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: Icon(FontAwesomeIcons.backward,
+                          color: Color(0xff000000)),
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      "SIGN IN",
+                      style: TextStyle(fontSize: 32, fontFamily: 'Bungee'),
+                    ),
+                  ),
+                ),
+              ],
             ),
 
             SizedBox(height: 40),

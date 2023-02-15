@@ -18,12 +18,33 @@ class _SignOutPageState extends State<SignOutPage> {
             child: Column(
           children: [
             SizedBox(height: 30),
-            Text(
-              'Sign Up',
-              style: GoogleFonts.bungee(
-                fontWeight: FontWeight.bold,
-                fontSize: 26,
-              ),
+            Row(
+              children: [
+                GestureDetector(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 15),
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: Icon(FontAwesomeIcons.backward,
+                          color: Color(0xff000000)),
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      'Sign Up',
+                      style: GoogleFonts.bungee(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 26,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 20),
             Padding(
